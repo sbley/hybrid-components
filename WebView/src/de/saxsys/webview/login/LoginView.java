@@ -12,6 +12,12 @@ import netscape.javascript.JSObject;
 
 public class LoginView extends VBox {
 
+    public class LoginService {
+        public void login(String username, String password) {
+            txtLogin.textProperty().set(username);
+        }
+    }
+
     WebView webView = new WebView();
     WebEngine webEngine = webView.getEngine();
     Label lblLogin = new Label("Login: ");
@@ -21,7 +27,7 @@ public class LoginView extends VBox {
         webEngine.load(getClass().getResource("login.html").toExternalForm());
 
         JSObject jsobj = (JSObject) webEngine.executeScript("window");
-        // jsobj.setMember("java", new MapsCallback());
+        jsobj.setMember("loginService", new LoginService());
         initUI();
     }
 

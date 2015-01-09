@@ -14,7 +14,6 @@ public class MapsStarter extends Application {
     public void start(Stage stage) throws Exception {
         Scene scene = new Scene(new LoginView(), 500, 550);
         stage.setScene(scene);
-        // stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
     }
 }

@@ -4,9 +4,12 @@
 <meta charset="utf-8" />
 <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../bootstrap-validator/css/bootstrapValidator.min.css">
 <script type='text/javascript' src='../knockout-3.2.0.js'></script>
+<script type='text/javascript' src="../bootstrap/js/bootstrap.min.js"></script>
+<script type='text/javascript' src="../bootstrap-validator/js/bootstrapValidator.min.js"></script>
 <style>
-body {
+.container {
 	height: 500px;
 	width: 500px
 }
@@ -23,12 +26,12 @@ body {
 					<div class="form-group">
 						<label for="txtUsername">Username:</label> <input id="txtUsername"
 							data-bind="value: username" placeholder="Enter username"
-							type="text" class="form-control" />
+							type="text" required="required" class="form-control" />
 					</div>
 					<div class="form-group">
 						<label for="txtPassword">Password:</label> <input
 							data-bind="value: password" placeholder="Enter password"
-							type="password" class="form-control" />
+							type="password" required class="form-control" />
 					</div>
 
 					<button data-bind="click: login" class="btn btn-default">Login</button>
@@ -52,11 +55,23 @@ body {
 
 		    self.login = function() {
 		        this.username(this.username().toUpperCase()); // Write back a modified value
+		        loginService.login(this.username(), this.password);
 		    };
 		}
 
 		// Activates knockout.js
 		ko.applyBindings(new LoginViewModel());   
+
+// 		$(document).ready(function() {
+// 		    $(form).bootstrapValidator({
+// 		        feedbackIcons: {
+// 		            valid: 'glyphicon glyphicon-ok',
+// 		            invalid: 'glyphicon glyphicon-remove',
+// 		            validating: 'glyphicon glyphicon-refresh'
+// 		        }
+		       
+// 		    });
+// 		});
     </script>
 			</div>
 		</div>
