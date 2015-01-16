@@ -1,5 +1,5 @@
 */bin
-/
+target/
 .metadata
 .classpath
-*/.settings
+.settings/
