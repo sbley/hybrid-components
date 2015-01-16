@@ -1,6 +1,2 @@
-JAX2014
+Web component for use in JavaFX desktop apps
 =======
-
-Code-Examples of the JAX Session
-
-http://jax.de/2014/sessions/javafx-zehn-dinge-die-ich-dir-liebe
