@@ -1,0 +1,25 @@
+{
+  "name": "login",
+  "version": "0.0.0",
+  "homepage": "https://github.com/sialcasa/JAX2014",
+  "authors": [
+    "Stefan Bley <stefan.bley@saxsys.de>"
+  ],
+  "description": "Login dialog",
+  "main": "login.js",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "login"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
