@@ -33,7 +33,7 @@ public class LoginView extends VBox {
                         jsobj.setMember("loginService", new LoginService());
                     }
                 });
-        webEngine.load(getClass().getResource("login.html").toExternalForm());
+        webEngine.load(getClass().getResource("/login/login.html").toExternalForm());
     }
 
     private void initUI() {
