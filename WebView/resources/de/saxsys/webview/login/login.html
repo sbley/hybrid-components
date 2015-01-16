@@ -4,10 +4,15 @@
 <meta charset="utf-8" />
 <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../bootstrap-validator/css/bootstrapValidator.min.css">
-<script type='text/javascript' src='../knockout-3.2.0.js'></script>
-<script type='text/javascript' src="../bootstrap/js/bootstrap.min.js"></script>
-<script type='text/javascript' src="../bootstrap-validator/js/bootstrapValidator.min.js"></script>
+<link rel="stylesheet"
+	href="../formvalidation/dist/css/formValidation.min.css">
+<script type='text/javascript' src="../jquery/js/jquery.min.js"></script>
+<script type='text/javascript' src="../knockout-3.2.0.js"></script>
+<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+<script type='text/javascript'
+	src="../formvalidation/dist/js/formValidation.min.js"></script>
+<script type='text/javascript'
+	src="../formvalidation/dist/js/framework/bootstrap.min.js"></script>
 <style>
 .container {
 	height: 500px;
@@ -22,16 +27,24 @@
 		<div class="panel panel-default">
 			<div class="panel-heading">Login</div>
 			<div class="panel-body">
-				<form role="form">
+				<form role="form" data-fv-framework="bootstrap"
+					data-fv-icon-valid="glyphicon glyphicon-ok"
+					data-fv-icon-invalid="glyphicon glyphicon-remove"
+					data-fv-icon-validating="glyphicon glyphicon-refresh">
 					<div class="form-group">
 						<label for="txtUsername">Username:</label> <input id="txtUsername"
-							data-bind="value: username" placeholder="Enter username"
-							type="text" required="required" class="form-control" />
+							name="username" data-bind="value: username"
+							placeholder="Enter username" type="text" data-fv-notempty="true"
+							data-fv-notempty-message="The username is required"
+							class="form-control" />
 					</div>
 					<div class="form-group">
-						<label for="txtPassword">Password:</label> <input
-							data-bind="value: password" placeholder="Enter password"
-							type="password" required class="form-control" />
+						<label for="txtPassword">Password:</label> <input id="txtPassword"
+							name="password" data-bind="value: password"
+							placeholder="Enter password" type="password"
+							data-fv-notempty="true"
+							data-fv-notempty-message="The password is required and cannot be empty"
+							class="form-control" />
 					</div>
 
 					<button data-bind="click: login" class="btn btn-default">Login</button>
@@ -39,40 +52,8 @@
 				<p>
 					<b data-bind="text: loginData"></b>
 				</p>
-
-				<script type="text/javascript">
-		function LoginData(data) {
-			this.username = ko.observable(data.username);
-		    this.password = ko.observable(data.password);
-		}
-		
-		// This is a simple *viewmodel* - JavaScript that defines the data and behavior of your UI
-		function LoginViewModel() {
-			var self = this;
-		    self.username = ko.observable();
-		    self.password = ko.observable();
- 		    self.loginData = ko.observable();
-
-		    self.login = function() {
-		        this.username(this.username().toUpperCase()); // Write back a modified value
-		        loginService.login(this.username(), this.password);
-		    };
-		}
-
-		// Activates knockout.js
-		ko.applyBindings(new LoginViewModel());   
-
-// 		$(document).ready(function() {
-// 		    $(form).bootstrapValidator({
-// 		        feedbackIcons: {
-// 		            valid: 'glyphicon glyphicon-ok',
-// 		            invalid: 'glyphicon glyphicon-remove',
-// 		            validating: 'glyphicon glyphicon-refresh'
-// 		        }
-		       
-// 		    });
-// 		});
-    </script>
+				<script type='text/javascript' src="../login/login.js"></script>
+				<script type='text/javascript' src="../login/loginService.js"></script>
 			</div>
 		</div>
 	</div>

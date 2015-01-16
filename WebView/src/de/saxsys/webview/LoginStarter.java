@@ -5,7 +5,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import de.saxsys.webview.login.LoginView;
 
-public class MapsStarter extends Application {
+public class LoginStarter extends Application {
     public static void main(String[] args) {
         launch(args);
     }
