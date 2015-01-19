@@ -35,6 +35,7 @@ public class LoginView extends VBox {
                 });
         webEngine.load(getClass().getResource("/login-0.0.1-SNAPSHOT/app/login/login.html")
                 .toExternalForm());
+        webEngine.load(getClass().getResource("/app/login/login.html").toExternalForm());
     }
 
     private void initUI() {
