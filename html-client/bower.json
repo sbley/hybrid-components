@@ -1,0 +1,16 @@
+{
+  "name": "html-client",
+  "version": "0.0.1",
+  "authors": [
+    "Stefan Bley <stefan.bley@saxsys.de>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
