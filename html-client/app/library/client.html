@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+
+<script async>
+  function handleLoad(e) {
+    console.log('Loaded import: ' + e.target.href);
+  }
+  function handleError(e) {
+    console.log('Error loading import: ' + e.target.href);
+  }
+</script>
+<link rel="import" href="../../bower_components/login/app/login/login.html" onload="handleLoad(event)"
+	onerror="handleError(event)" />
+</head>
+<body>
+	<script>
+// 	function supportsImports() {
+// 		  return 'import' in document.createElement('link');
+// 		}
+
+// 		if (supportsImports()) {
+// 		  // Good to go!
+// 		} else {
+// 		  // Use other libraries/require systems to load files.
+// 		}
+		
+    var link = document.querySelector('link[rel="import"]');
+    var content = link.import;
+
+    // Grab DOM from login.html's document.
+    var el = content.querySelector('.container');
+
+    document.body.appendChild(el.cloneNode(true));
+  </script>
+</body>
+</html>
