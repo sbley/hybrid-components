@@ -11,20 +11,22 @@
     console.log('Error loading import: ' + e.target.href);
   }
 </script>
-<link rel="import" href="../../bower_components/login/app/login/login.html" onload="handleLoad(event)"
+<link rel="import" href="../../bower_components/chart/app/chart/chart.html" onload="handleLoad(event)"
 	onerror="handleError(event)" />
 </head>
 <body>
 	<script>
-// 	function supportsImports() {
-// 		  return 'import' in document.createElement('link');
-// 		}
+	function supportsImports() {
+		  return 'import' in document.createElement('link');
+		}
 
-// 		if (supportsImports()) {
-// 		  // Good to go!
-// 		} else {
-// 		  // Use other libraries/require systems to load files.
-// 		}
+		if (supportsImports()) {
+			console.log("supports html imports");
+		  // Good to go!
+		} else {
+		  // Use other libraries/require systems to load files.
+			console.log("no html import support");
+		}
 		
     var link = document.querySelector('link[rel="import"]');
     var content = link.import;

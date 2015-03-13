@@ -12,7 +12,7 @@
     <dependencies>
         <dependency>
             <groupId>de.saxsys.js</groupId>
-            <artifactId>login</artifactId>
+            <artifactId>chart</artifactId>
             <version>${version.de.saxsys.js}</version>
             <type>zip</type>
         </dependency>
@@ -34,7 +34,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>de.saxsys.webview.LoginStarter</mainClass>
+                            <mainClass>de.saxsys.webview.ClientStarter</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -69,7 +69,7 @@
                         <configuration>
                             <resources>
                                 <resource>
-                                    <directory>${project.build.directory}/generated-resources/login-${version.de.saxsys.js}</directory>
+                                    <directory>${project.build.directory}/generated-resources/chart-${version.de.saxsys.js}</directory>
                                 </resource>
                             </resources>
                         </configuration>
