@@ -8,12 +8,13 @@
   "private": true,
   "ignore": [
     "**/.*",
+    "pom.xml",
     "node_modules",
     "bower_components",
     "test",
     "tests"
   ],
   "dependencies": {
-    "chart": "../chart"
+    "pie-chart": "../chart/pie-chart"
   }
 }

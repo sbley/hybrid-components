@@ -12,7 +12,7 @@
     <dependencies>
         <dependency>
             <groupId>de.saxsys.js</groupId>
-            <artifactId>chart</artifactId>
+            <artifactId>pie-chart</artifactId>
             <version>${version.de.saxsys.js}</version>
             <type>zip</type>
         </dependency>
@@ -69,7 +69,7 @@
                         <configuration>
                             <resources>
                                 <resource>
-                                    <directory>${project.build.directory}/generated-resources/chart-${version.de.saxsys.js}</directory>
+                                    <directory>${project.build.directory}/generated-resources/pie-chart-${version.de.saxsys.js}</directory>
                                 </resource>
                             </resources>
                         </configuration>

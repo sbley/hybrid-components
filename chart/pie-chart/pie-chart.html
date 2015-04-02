@@ -1,0 +1,64 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<polymer-element name="pie-chart" attributes="todo inProgress done"> 
+	<template>
+		<span>There are {{todo}} open issues, {{inProgress}} in progress
+	and {{done}} issues done. </span> 
+	<div id="canvas-holder">
+		<canvas id="chartArea" width="400" height="400"></canvas>
+	</div>
+	</template> 
+	<script type='text/javascript' src="../Chart.js/chart.min.js"></script>
+	<script type="text/javascript" src="pie-chart-options.js"></script>
+	<script>
+		Polymer({
+			todo : 1,
+			inProgress : 1,
+			done : 1,
+			ready : function() {
+				chartData = [ {
+					value : this.todo,
+					color : "#F7977A", // "#F7464A",
+					highlight : "#F7464A",
+					label : "Todo"
+				}, {
+					value : this.inProgress,
+					color : "#FFF79A", // "#FFFC5C",
+					highlight : "#FFFC5C",
+					label : "In Progress"
+				}, {
+					value : this.done,
+					color : "#82CA9D", // "#B0FF5C",
+					highlight : "#B0FF5C",
+					label : "Done"
+				} ];
+				this.initPieChart();
+				
+			},
+			
+			initPieChart : function() {
+				// Get the context of the canvas element we want to select
+				var ctx = this.$.chartArea.getContext("2d");
+				// Create pie chart
+				myPieChart = new Chart(ctx).Pie(chartData, options);
+			},
+			
+			todoChanged : function(oldVal, newVal) {
+				this.updateValues();
+			},
+			inProgressChanged : function(oldVal, newVal) {
+				this.updateValues();
+			},
+			doneChanged : function(oldVal, newVal) {
+				this.updateValues();
+			},
+			
+			updateValues : function() {
+				myPieChart.segments[0].value = this.todo;
+				myPieChart.segments[1].value = this.inProgress;
+				myPieChart.segments[2].value = this.done;
+				myPieChart.update();
+			}
+		});
+	</script> 
+</polymer-element>

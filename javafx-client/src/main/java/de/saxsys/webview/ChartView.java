@@ -7,7 +7,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
-import netscape.javascript.JSObject;
 
 public class ChartView extends VBox {
 
@@ -25,19 +24,11 @@ public class ChartView extends VBox {
     private void initWebEngine() {
         webEngine.getLoadWorker()
                 .stateProperty()
-                .addListener(
-                        (ChangeListener<Worker.State>) (ov, oldState, newState) -> {
-                            if (Worker.State.SUCCEEDED == newState) {
-                                JSObject ar = (JSObject) webEngine.executeScript("[1,2]");
-                                Object slot = ar.getSlot(0);
-                                JSObject jsobj = (JSObject) webEngine.executeScript("window");
-                                JSObject s =
-                                        (JSObject) webEngine.executeScript("window.getComputedStyle(document.getElementById('chart-area', null));");
-                                // jsobj.setMember("loginService", new LoginService());
-                                System.out.println(s);
-                            }
-                        });
-        loadHtml(webEngine, "/app/chart/chart.html");
+                .addListener((ChangeListener<Worker.State>) (ov, oldState, newState) -> {
+                    if (Worker.State.SUCCEEDED == newState) {
+                    }
+                });
+        loadHtml(webEngine, "/client.html");
     }
 
     private void loadHtml(WebEngine webEngine, String file) {
@@ -47,7 +38,6 @@ public class ChartView extends VBox {
     private void initUI() {
         setStyle("-fx-background-color:white;");
         setAlignment(Pos.CENTER);
-        // webView.setClip(new Rectangle(700, 550));
         getChildren().addAll(webView, txtTodo, txtInProgress, txtDone);
 
         ChangeListener<String> changeListener =
@@ -55,8 +45,10 @@ public class ChartView extends VBox {
                     int todo = nullsafeVal(txtTodo.getText());
                     int inProgress = nullsafeVal(txtInProgress.getText());
                     int done = nullsafeVal(txtDone.getText());
-                    webEngine.executeScript(String.format("updateValues(%d,%d,%d);", todo,
-                            inProgress, done));
+                    webEngine.executeScript("document.querySelector('pie-chart').todo = " + todo);
+                    webEngine.executeScript("document.querySelector('pie-chart').inProgress = "
+                            + inProgress);
+                    webEngine.executeScript("document.querySelector('pie-chart').done = " + done);
                 };
         txtTodo.textProperty().addListener(changeListener);
         txtInProgress.textProperty().addListener(changeListener);
