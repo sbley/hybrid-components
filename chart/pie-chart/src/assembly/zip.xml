@@ -3,16 +3,20 @@
     <formats>
         <format>zip</format>
     </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
     <fileSets>
         <fileSet>
             <directory>../</directory>
-            <outputDirectory>pie-chart</outputDirectory>
+            <outputDirectory>/</outputDirectory>
             <includes>
                 <include>**/*</include>
             </includes>
             <excludes>
                 <exclude>test/*</exclude>
-                <exclude>src/*</exclude>
+                <exclude>**/src/**</exclude>
+                <exclude>**/target/**</exclude>
+                <exclude>.settings/*</exclude>
+                <exclude>.project</exclude>
             </excludes>
         </fileSet>
     </fileSets>
