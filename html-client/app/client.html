@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<script src="../bower_components/webcomponentsjs/webcomponents.min.js"></script>
+<link rel="import" href="../bower_components/pie-chart/pie-chart.html" />
+</head>
+<body>
+	<fieldset title="included pie-chart">
+		<pie-chart todo="8" inProgress="5" done="10"></pie-chart>
+	</fieldset>
+	
+	<fieldset style="background-color: #EEEEEE; margin-top: 10px">
+		Todo: <input type="number" placeholder="todo issues" value="8" />
+		<script>
+			var inputTodo = document.querySelector('input');
+			inputTodo.addEventListener('change', function() {
+				document.querySelector('pie-chart').todo = inputTodo.value;
+			});
+		</script>
+	</fieldset>
+</body>
+</html>
