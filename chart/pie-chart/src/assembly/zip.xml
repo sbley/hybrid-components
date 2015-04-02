@@ -10,6 +10,10 @@
             <includes>
                 <include>**/*</include>
             </includes>
+            <excludes>
+                <exclude>test/*</exclude>
+                <exclude>src/*</exclude>
+            </excludes>
         </fileSet>
     </fileSets>
 </assembly>
