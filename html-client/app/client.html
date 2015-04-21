@@ -6,18 +6,18 @@
 <link rel="import" href="../bower_components/pie-chart/pie-chart.html" />
 </head>
 <body>
-	<fieldset title="included pie-chart">
-		<pie-chart todo="8" inProgress="5" done="10"></pie-chart>
-	</fieldset>
-	
-	<fieldset style="background-color: #EEEEEE; margin-top: 10px">
-		Todo: <input type="number" placeholder="todo issues" value="8" />
+	<fieldset style="background-color: #EEEEEE; margin-bottom: 10px">
+		Todo: <input id="todo" type="number" placeholder="todo issues" value="8" />
 		<script>
-			var inputTodo = document.querySelector('input');
+			var inputTodo = document.querySelector('input#todo');
 			inputTodo.addEventListener('change', function() {
 				document.querySelector('pie-chart').todo = inputTodo.value;
 			});
 		</script>
+	</fieldset>
+	
+	<fieldset>
+		<pie-chart todo="8" inProgress="5" done="10"></pie-chart>
 	</fieldset>
 </body>
 </html>
